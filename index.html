@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Kushal ⚡</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #090d16; /* Deep metallic dark blue/black */
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            position: relative;
+        }
 
+        /* Fireflies and Sparkles Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -30px;
+            font-size: var(--size);
+            opacity: var(--opacity);
+            animation: floatUp var(--duration) linear infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) scale(0.8);
+                opacity: 0;
+            }
+            20% { opacity: var(--opacity); }
+            80% { opacity: var(--opacity); }
+            100% {
+                transform: translateY(-120vh) translateX(var(--drift)) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .scroll-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1.35rem;
+            line-height: 1.8;
+            font-weight: 300;
+            padding: 40px 0;
+            box-sizing: border-box;
+        }
+
+        .indicator {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .highlight {
+            color: #38bdf8; /* Energetic blue */
+            font-weight: 500;
+        }
+        
+        .accent {
+            color: #f43f5e; /* Rose / Strength */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-animation" id="bg-animation"></div>
+
+    <div class="scroll-container">
+        
+        <div class="section">
+            <div>
+                <p>Hi, Kushal. ⚡</p>
+                <div class="indicator">Keep scrolling, brother. ↓↓</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <p>I know everything feels incredibly heavy right now.</p>
+        </div>
+
+        <div class="section">
+            <p>I see you endlessly scrolling, trying to distract your mind...</p>
+        </div>
+
+        <div class="section">
+            <p>Trying to escape the thoughts, the anger, and the silence.</p>
+        </div>
+
+        <div class="section">
+            <p>But listen to me closely...</p>
+        </div>
+
+        <div class="section">
+            <p>One bad chapter does not mean your story is over.</p>
+        </div>
+
+        <div class="section">
+            <p>Someone's inability to see your worth...</p>
+        </div>
+
+        <div class="section">
+            <p>Does <span class="accent">NOT</span> decrease your value.</p>
+        </div>
+
+        <div class="section">
+            <p>You are strong, you are capable, and you have so much left to achieve.</p>
+        </div>
+
+        <div class="section">
+            <p>It's okay to feel angry. It's okay to feel down.</p>
+        </div>
+
+        <div class="section">
+            <p>But don't lose yourself in the loop of the past.</p>
+        </div>
+
+        <div class="section">
+            <p>Put the phone down for a minute. Take a deep breath.</p>
+        </div>
+
+        <div class="section">
+            <p>Your sister is right here, standing solid behind you.</p>
+        </div>
+
+        <div class="section">
+            <p>You are going to bounce back from this, <span class="highlight">Kushal</span>.</p>
+        </div>
+
+        <div class="section">
+            <p style="font-size: 1.6rem; font-weight: 600; color: #38bdf8;">Time to rebuild. I believe in you. 🤜🤛</p>
+        </div>
+
+    </div>
+
+    <script>
+        const bg = document.getElementById('bg-animation');
+        // Sparkles, fireflies, and energy dots
+        const items = ['✨', '🌌', '⚡', '•', '✨'];
+        
+        for (let i = 0; i < 45; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.innerText = items[Math.floor(Math.random() * items.length)];
+            
+            const size = (Math.random() * 10 + 8) + 'px';
+            const opacity = Math.random() * 0.5 + 0.3;
+            const duration = (Math.random() * 10 + 8) + 's'; // A bit faster, more dynamic than before
+            const delay = (Math.random() * -20) + 's'; 
+            const left = Math.random() * 100 + 'vw';
+            const drift = (Math.random() * 140 - 70) + 'px';
+
+            p.style.setProperty('--size', size);
+            p.style.setProperty('--opacity', opacity);
+            p.style.setProperty('--duration', duration);
+            p.style.setProperty('--delay', delay);
+            p.style.setProperty('--drift', drift);
+            p.style.left = left;
+
+            bg.appendChild(p);
+        }
+    </script>
+
+</body>
+</html>
